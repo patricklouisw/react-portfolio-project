@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import { images } from "../../constants";
 import "./About.scss";
 import { urlFor, client, getAbout } from "../../client";
+// import { AppWrap } from "../../wrapper";
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
