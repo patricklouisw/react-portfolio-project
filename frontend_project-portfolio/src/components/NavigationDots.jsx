@@ -12,7 +12,6 @@ const NavigationDots = ({ active }) => (
         />
       )
     )}
-    {active}
   </div>
 );
 
