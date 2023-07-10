@@ -12,6 +12,7 @@ const About = () => {
     const query = '*[_type == "abouts"]';
 
     client.fetch(query).then((data) => {
+      console.log(data)
       setAbouts(data);
     });
   }, []);
@@ -19,9 +20,15 @@ const About = () => {
   return (
     <>
       <h2 className="head-text">
-        I Know that <span>Good Design</span> <br />
-        means <span>Good Business</span>
+        About <span>Me</span>
       </h2>
+      <p className="p-text" style={{fontSize: '15px', marginTop: '10px'}}>
+        My name is <b>Patrick Louis.</b>  I am a Software Developer, based in <b>Toronto, Canada</b>. 
+        <br/> 
+        I graduated from the University of Toronto with a Bachelor's degree on Computer Science.
+        <br />
+        My main focus is to learn more about web technologies, both frontend and backend, as well as gaining more exposure towards cloud technologies.
+      </p>
 
       <div className="app__profiles">
         {abouts.map((about, index) => (

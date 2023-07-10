@@ -65,8 +65,11 @@ const Skills = () => {
                     >
                       <h4 className="bold-text">{work.name}</h4>
                       <p className="p-text">{work.company}</p>
+                      <hr style={{width: '100%'}} />
+                      <p className="p-text">{work.desc}</p>
+
                     </motion.div>
-                    <Tooltip
+                    {/* <Tooltip
                       id={work.name}
                       effect="solid"
                       arrowColor="#fff"
@@ -74,6 +77,13 @@ const Skills = () => {
                     >
                       {work.desc}
                     </Tooltip>
+                    <a className="my-anchor-element" data-tooltip-content="Hello world!">
+                      ◕‿‿◕
+                    </a>
+                    <a className="my-anchor-element" data-tooltip-content="Hello to you too!">
+                      ◕‿‿◕
+                    </a>
+                    <Tooltip anchorSelect=".my-anchor-element" /> */}
                   </>
                 ))}
               </motion.div>
