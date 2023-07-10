@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Tooltip } from "react-tooltip";
-
+// import { Tooltip } from "react-tooltip";
+import { BasicAccordion } from "../../components";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Skills.scss";
@@ -28,6 +28,7 @@ const Skills = () => {
       <h2 className="head-text">Skills & Experiences</h2>
 
       <div className="app__skills-container">
+        {/* Skill Bubble */}
         <motion.div className="app__skills-list">
           {skills.map((skill) => (
             <motion.div
@@ -46,49 +47,13 @@ const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
+        
+        {/* Experiences */}
         <div className="app__skills-exp">
-          {experiences.map((experience) => (
-            <motion.div className="app__skills-exp-item" key={experience.year}>
-              <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.year}</p>
-              </div>
-              <motion.div className="app__skills-exp-works">
-                {experience.works.map((work) => (
-                  <>
-                    <motion.div
-                      whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
-                      className="app__skills-exp-work"
-                      data-tip
-                      data-for={work.name}
-                      key={work.name}
-                    >
-                      <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
-                      <hr style={{width: '100%'}} />
-                      <p className="p-text">{work.desc}</p>
-
-                    </motion.div>
-                    {/* <Tooltip
-                      id={work.name}
-                      effect="solid"
-                      arrowColor="#fff"
-                      className="skills-tooltip"
-                    >
-                      {work.desc}
-                    </Tooltip>
-                    <a className="my-anchor-element" data-tooltip-content="Hello world!">
-                      ◕‿‿◕
-                    </a>
-                    <a className="my-anchor-element" data-tooltip-content="Hello to you too!">
-                      ◕‿‿◕
-                    </a>
-                    <Tooltip anchorSelect=".my-anchor-element" /> */}
-                  </>
-                ))}
-              </motion.div>
-            </motion.div>
+          {experiences.map((experience, index) => (
+            <BasicAccordion key={index} summary={experience.year} works={experience.works}/> 
           ))}
+
         </div>
       </div>
     </>
