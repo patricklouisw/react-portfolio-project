@@ -15,6 +15,8 @@ const Skills = () => {
     const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then((data) => {
+      data.sort((a,b) => (a.year > b.year) ? 1 : ((b.year > a.year) ? -1 : 0))
+      console.log(data)
       setExperiences(data);
     });
 
@@ -35,7 +37,7 @@ const Skills = () => {
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
-              key={skill.name}
+              key={"skill-" + skill.name}
             >
               <div
                 className="app__flex"
@@ -50,10 +52,11 @@ const Skills = () => {
         
         {/* Experiences */}
         <div className="app__skills-exp">
+          <h2>Work Experiences</h2>
+          <hr style={{width: "100%", marginBottom: "20px"}} />
           {experiences.map((experience, index) => (
             <BasicAccordion key={index} summary={experience.year} works={experience.works}/> 
           ))}
-
         </div>
       </div>
     </>
