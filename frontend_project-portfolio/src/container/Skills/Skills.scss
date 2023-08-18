@@ -9,7 +9,13 @@
   margin-top: 3rem;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  div{
+    h2 {
+      text-align: center;
+    }
+  }
 
   @media screen and (max-width: 900px) {
     width: 100%;
@@ -104,6 +110,7 @@
 
 .app__skills-exp-works {
   flex: 1;
+  padding-left: 2rem;
 
   .app__skills-exp-work {
     display: flex;
@@ -111,17 +118,28 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin-bottom: 1rem;
-    cursor: pointer;
 
     h4 {
-      font-weight: 500;
+      font-weight: 600;
+      font-size: larger;
     }
 
     p {
       font-weight: 400;
       color: var(--gray-color);
-      margin-top: 5px;
+      font-size: medium;
     }
+
+    span {
+      font-weight: 500;
+      color: var(--secondary-color);
+    }
+
+    .portable-text {
+      padding-left: 2rem;
+      gap: 1rem;
+    }
+
   }
 }
 
@@ -131,6 +149,7 @@
   p {
     font-weight: 800;
     color: var(--secondary-color);
+    font-size: x-large;
   }
 
   @media screen and (max-width: 450px) {
@@ -154,4 +173,27 @@
     max-width: 500px !important;
     line-height: 2 !important;
   }
+}
+
+.app__buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem;
+
+  .resumeButton{
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+
+    :hover {
+      background-color: var(--white-color);
+      color: var(--secondary-color);
+    }
+  }
+
+  // .linkedInButton {
+  //   background-color: var(--secondary-color);
+  // }
 }
