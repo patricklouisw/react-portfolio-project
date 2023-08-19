@@ -10,6 +10,16 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 
 import "./Skills.scss";
 
+const components = {
+  list: {
+    // Ex. 1: customizing common list types
+    bullet: ({ children }) => (
+      <ul style={{ fontSize: "medium" }}>{children}</ul>
+      // <ul>{children}</ul>
+    ),
+  },
+};
+
 const Skills = () => {
   const [experiences, setExperiences] = useState([]);
   const [skills, setSkills] = useState([]);
@@ -34,31 +44,6 @@ const Skills = () => {
       <h2 className="head-text">Skills & Experiences</h2>
 
       <div className="app__skills-container">
-        {/* Experiences
-        <div className="app__skills-exp">
-          <h2>Work Experiences</h2>
-          <hr style={{width: "100%", marginBottom: "20px"}} />
-          {experiences.map((experience, index) => (
-            <div key={index}>
-              <p>{experience.year}</p>
-
-              {experience.works.map((work, index) => (
-                <div key={index}>
-                  <h4 className="bold-text">{work.name}</h4>
-                  <p className="p-text" style={{fontWeight:'500'}}>{work.company}</p>
-                  <hr style={{width: '100%'}} />
-                  <p className="p-text">{work.desc}</p>
-                  <br/>
-                </div> 
-              ))}
-
-            </div>
-            // <BasicAccordion key={index} summary={experience.year} works={experience.works}/> 
-          ))}
-
-          <Button style={{marginTop: '20px'}} variant="contained" href="https://drive.google.com/file/d/1ayUREM4giSmRGUtLeAKBx5iRtmHAlME5/view?usp=sharing" target="_blank">Check My Resume</Button>
-          <Button style={{marginTop: '10px'}} variant="outlined" href="https://linkedin.com/in/patricklouisw" target="_blank">Check My LinkedIn</Button>
-        </div> */}
         <div className="app__skills-exp">
           {experiences.map((experience, index) => (
             <div key={index}>
@@ -86,7 +71,7 @@ const Skills = () => {
                       <span>{work.duration}</span> | {work.company}
                     </p>
                     <div className="portable-text">
-                      <PortableText value={work.desc} />
+                      <PortableText value={work.desc} components={components} />
                     </div>
                   </motion.div>
                 ))}
@@ -98,6 +83,7 @@ const Skills = () => {
               variant="contained"
               href="https://drive.google.com/drive/folders/1UqcRf-IihUP8R7WfSniKt_3pILeecZq8?usp=sharing"
               target="_blank"
+              size="large"
             >
               Check My Resume
             </Button>
@@ -105,6 +91,7 @@ const Skills = () => {
               variant="outlined"
               href="https://linkedin.com/in/patricklouisw"
               target="_blank"
+              size="large"
             >
               Check My LinkedIn
             </Button>
